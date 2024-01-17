@@ -106,7 +106,7 @@ class FieldCollapsing extends AbstractDeactivatable implements ParameterBuilderI
             return $parentBuilder;
         }
 
-        $parentBuilder->useFilter('{!collapse field=' . $this->getCollapseFieldName() . '}', 'fieldCollapsing');
+        $parentBuilder->useFilter('{!tag=collapsedTag} {!collapse field=' . $this->getCollapseFieldName() . '}', 'fieldCollapsing');
         if ($this->getIsExpand()) {
             $query->addParam('expand', 'true');
             $query->addParam('expand.rows', $this->getExpandRowCount());
